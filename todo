@@ -1,0 +1,14 @@
+Fase 1. Semana 5 de maio
+1. Criar parser para o comando CREATE do SQL.
+2. Inicializar as tabelas e colunas de acordo com o comando CREATE (imaginando um plano lógico).
+3. Inicializar as tabelas e colunas de acordo com o comando CREATE (imaginando um plano físico).
+4. Calcular o tamanho das linhas para cada tabela lógica.
+5. Calcular o tamanho das linhas para cada tabela física.
+6. Povoar automaticamente a base com dados hipotéticos.
+7. Mostrar as seletividades de cada atributo para cada possível condição.
+
+
+Fase 2. Semana 1 de junho
+1. Criar parser para o comando SELECT do SQL (comando simples, conforme visto em aula).
+3. Calcular o custo do plano lógico.
+4. Calcular o custo do plano físico.
