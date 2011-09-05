@@ -92,18 +92,16 @@
 			<version>[4.0,)</version>
 		</dependency>
 
-
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
 			<version>[5.1.0,)</version>
-			<type>pom</type>
 			<scope>runtime</scope>
 		</dependency>
 	</dependencies>
 
 	<build>
-		<finalName>${artifactId}-${version}</finalName>
+		<finalName>${project.artifactId}-${project.version}</finalName>
 
 		<directory>target</directory>
 
@@ -115,11 +113,17 @@
 
 		<resources>
 			<resource>
-				<targetPath>lib/</targetPath>
+				<directory>${project.basedir}/resources</directory>
 				<filtering>false</filtering>
-				<directory>${basedir}/lib</directory>
 			</resource>
 		</resources>
+
+		<testResources>
+			<testResource>
+				<directory>${project.basedir}/test-resources</directory>
+				<filtering>false</filtering>
+			</testResource>
+		</testResources>
 
 		<plugins>
 			<plugin>
@@ -129,35 +133,10 @@
 					<fork>true</fork>
 					<meminitial>128m</meminitial>
 					<maxmem>512m</maxmem>
-					<source>1.5</source>
-					<target>1.5</target>
-				</configuration>
-			</plugin>
-
-			<plugin>
-				<artifactId>maven-clean-plugin</artifactId>
-				<configuration>
-					<filesets>
-						<fileset>
-							<directory>bin/</directory>
-						</fileset>
-					</filesets>
+					<source>1.6</source>
+					<target>1.6</target>
 				</configuration>
 			</plugin>
 		</plugins>
 	</build>
-
-	<reporting>
-		<outputDirectory>site</outputDirectory>
-		<plugins>
-			<plugin>
-				<groupId>org.codehaus.sonar-plugins</groupId>
-				<artifactId>maven-report</artifactId>
-			</plugin>
-		</plugins>
-	</reporting>
-	
-	<properties>
-		<sonar.host.url>http://www.ironiacorp.com/Apps/Sonar/</sonar.host.url>
-	</properties>
 </project>

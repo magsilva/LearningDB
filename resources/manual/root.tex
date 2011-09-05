@@ -1,0 +1,67 @@
+\documentclass{techreport}
+
+
+\title{XX}
+\author{XX}
+\
+
+\begin{document}
+
+\maketitle
+
+\chapter{}
+
+\section{Regras da álgebra relacional}
+
+Operações definidas para o operador de seleção (\sigma):
+
+\begin{itemize}
+	\item Comutativa: \sigma_{(c1)}(\sigma(c2)(R)) = \sigma_{(c2)}(\sigma_{(c1)}(R))
+	\item Idempotente: \sigma_{(c1)}(\sigma(c1)(R)) =  \sigma_{(c1)}(R)
+	\item \sigma_{(c1)}(\sigma_{(c2)}(R)) = \sigma_{(c1 \wedge c2)}(R)
+	\item \sigma_{(c1 \wedge c2)}(R) = \sigma_{(c1)}(R) \cap \sigma_{(c2)}(R)
+	\item \sigma_{(c1 \vee c2)}(R) = \sigma_{(c1)}(R) \cup \sigma_{(c2)}(R)
+	\item \sigma_{(\neg c1)}(R) = R - \sigma_{(c1)}
+\end{itemize}
+
+
+Operações definidas para o operador de projeção (\pi):
+
+\begin{itemize}
+	\item \pi_{(l1)}(\pi_{(l2)}(R)) = \pi_{(l1)}(R), se l1 \subseteq l2
+\end{itemize}
+
+
+Operações definidas para o operador de junção (\boxtimes):
+
+\begin{itemize}
+	\item Comutativa: R \boxtimes_{(c1)} S = S \boxtimes_{(c1)} R
+	\item Associativa: (R \boxtimes_{(c1)} S) \boxtimes_{(c2)} T = R \boxtimes_{(c1)} (S \boxtimes_{(c2)} T), se c1 envolver apenas atributos de R e S, e c2 envolver apenas atributos de S e T.
+	\item União
+	\item Intersecção:
+	\item Diferença:
+	\item Produto cartesiano:
+	\item Operações distributivas
+\end{itemize}
+
+
+Notificar a utilização de construções que impedem, por definição, o uso de índices:
+
+\begin{itemize}
+	\item Expressões com atributos indexados (WHERE salarioAnual/12) < 1000).
+	\item Uso de funções (WHERE substr(nome, 1, 5) = 'Maria').
+	\item Comparações com tipos diferentes (? ele permite isso???)
+	\item Comparações com NULL (WHERE cargo IS NOT NULL).
+\end{itemize}
+
+Outras dicas de otimização:
+
+\begin{itemize}
+	\item Minimizar o uso de DISTINC.
+	\item Colocar o máximo de comandos em uma mesma consulta.
+	\item Evitar o uso de sub-select.
+	\item Evitar o uso de condições disjuntivas (OR), utilizando condições conjuntivas (a maioria dos SGBDs não otimizam condições disjuntivas).
+\end{itemize}
+
+
+\end{document}
