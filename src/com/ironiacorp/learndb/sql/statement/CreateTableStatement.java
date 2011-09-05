@@ -11,5 +11,5 @@ public class CreateTableStatement
 	
 	private ArrayList<Constraint> constraints;
 	
-	public void addDefinition(Table)
+//	public void addDefinition(Table table);
 }

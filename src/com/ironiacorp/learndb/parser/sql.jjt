@@ -6,10 +6,10 @@ options {
   JDK_VERSION = "1.5";
 }
  
-PARSER_BEGIN(eg2) 
+PARSER_BEGIN(SQLParser) 
 package com.ironiacorp.learndb.parser;
 
-public class eg2 {
+public class SQLParser {
 	
 	/**
 	 * Determine whether the next sequence of tokens represents one of
@@ -79,9 +79,9 @@ public class eg2 {
   public static void main(String args[]) {
     System.out.println("Reading from standard input...");
     System.out.print("Enter an expression like \"1+(2+3)*var;\" :");
-    new eg2(System.in);
+    new SQLParser(System.in);
     try {
-      SimpleNode n = eg2.Start();
+      SimpleNode n = SQLParser.Start();
       n.dump("");
       System.out.println("Thank you.");
     } catch (Exception e) {
@@ -90,7 +90,7 @@ public class eg2 {
     }
   }
 }
-PARSER_END(eg2)
+PARSER_END(SQLParser)
 
 
 SKIP :

@@ -1,3 +1,5 @@
+package com.ironiacorp.learndb.sql;
+
 public class DivisionWizard
 {
 

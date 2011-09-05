@@ -51,7 +51,6 @@
 	<scm>
 		<connection>https://www.ironiacorp.com/svn/projects/LearningDB</connection>
 		<developerConnection>https://www.ironiacorp.com/svn/projects/LearningDB</developerConnection>
-		<tag>trunk</tag>
 		<url>http://www.ironiacorp.com/Apps/WebSVN/wsvn/Active%20projects.LearningDB</url>
 	</scm>
 
@@ -72,17 +71,28 @@
 
 	<distributionManagement>
 		<repository>
-			<id>labes-pc-010808-releases</id>
-			<name>labes-pc-010808-releases</name>
+			<id>labes-pc-010808</id>
+			<name>labes-pc-010808</name>
 			<url>http://www.ironiacorp.com/Apps/Artifactory/libs-releases-local</url>
 		</repository>
 	</distributionManagement>
 
 	<repositories>
-		<repository>
-			<id>labes-pc-010808-releases</id>
-			<url>http://www.ironiacorp.com/Apps/Artifactory/repo</url>
-		</repository>
+                <repository>
+                        <id>central</id>
+                        <url>http://repo1.maven.org/maven2/</url>
+                        <releases>
+                                <updatePolicy>never</updatePolicy>
+                        </releases>
+                </repository>
+
+                <repository>
+                        <id>LabES repository</id>
+                        <url>http://www.ironiacorp.com/Apps/Artifactory/repo</url>
+                        <releases>
+                                <updatePolicy>never</updatePolicy>
+                        </releases>
+                </repository>
 	</repositories>
 
 	<dependencies>
@@ -136,6 +146,25 @@
 					<source>1.6</source>
 					<target>1.6</target>
 				</configuration>
+			</plugin>
+		
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>javacc-maven-plugin</artifactId>
+				<version>2.7</version>
+				<executions>
+					<execution>
+						<id>sql</id>
+						<goals>
+							<goal>jtb-javacc</goal>
+						</goals>
+						<configuration>
+							<sourceDirectory>${project.build.sourceDirectory}/com/ironiacorp/learndb/parser</sourceDirectory>
+							<outputDirectory>${project.build.sourceDirectory}</outputDirectory>
+							<interimDirectory>${project.build.sourceDirectory}</interimDirectory>
+						</configuration>
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
 	</build>
